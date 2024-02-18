@@ -213,6 +213,56 @@ class _MainScreenState extends State<MainScreen> {
                 ),
               ],
             ),
+            const Padding(
+              padding: EdgeInsets.only(
+                top: 20,
+                left: 10,
+                right: 20,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        "Today",
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text("Tomorrow",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                          )),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Text("Next 14 Days"),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        size: 10,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            // ListView.builder(
+            //     scrollDirection: Axis.horizontal,
+            //     itemCount: 16,
+            //     itemBuilder: (BuildContext context, int index) {
+            //       return Container(
+            //         child: Column(
+            //           children: [Text("data")],
+            //         ),
+            //       );
+            //     }),
           ],
         ),
       ),
