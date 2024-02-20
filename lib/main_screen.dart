@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:weather_app_with_api/constants/week_days_list.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -7,6 +10,16 @@ class MainScreen extends StatefulWidget {
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
+
+List<String> weekDaysList = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday"
+];
 
 class _MainScreenState extends State<MainScreen> {
   @override
@@ -44,10 +57,7 @@ class _MainScreenState extends State<MainScreen> {
           gradient: LinearGradient(
             begin: Alignment.centerRight,
             end: Alignment.centerLeft,
-            colors: [
-              Color(0xff7DE8FF),
-              Color(0xff16C4EA)
-            ], // Change these colors as needed
+            colors: [Color(0xff7DE8FF), Color(0xff16C4EA)],
           ),
         ),
         child: Column(
@@ -253,16 +263,47 @@ class _MainScreenState extends State<MainScreen> {
                 ],
               ),
             ),
-            // ListView.builder(
-            //     scrollDirection: Axis.horizontal,
-            //     itemCount: 16,
-            //     itemBuilder: (BuildContext context, int index) {
-            //       return Container(
-            //         child: Column(
-            //           children: [Text("data")],
-            //         ),
-            //       );
-            //     }),
+            SizedBox(
+              height: 10,
+            ),
+            Expanded(
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: weekDaysList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    width: 100,
+                    decoration: BoxDecoration(
+                        color: Color(0xffffffff).withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(34.5)),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 13.8, horizontal: 6.9),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            weekDaysList[index].toString(),
+                            style: TextStyle(
+                              fontSize: 15,
+                            ),
+                          ),
+                          SvgPicture.asset(
+                            "assets/svg/sun.svg",
+                          ),
+                          Text(
+                            "20",
+                            style: TextStyle(
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
